@@ -62,16 +62,24 @@ const convertMs = ms => {
   return { days, hours, minutes, seconds };
 };
 
-const addLeadingZero = value => {
-  String(value).padStart(2, 0);
-};
-function updateTimer({ days, hours, minutes, seconds }) {
-  daysDisplay.textContent = days.toString().padStart(2, '0');
-  hoursDisplay.textContent = hours.toString().padStart(2, '0');
-  minutesDisplay.textContent = minutes.toString().padStart(2, '0');
-  secondsDisplay.textContent = seconds.toString().padStart(2, '0');
+// const addLeadingZero = value => {
+//   String(value).padStart(2, 0);
+// };
+// function updateTimer({ days, hours, minutes, seconds }) {
+//   daysDisplay.textContent = days.toString().padStart(2, '0');
+//   hoursDisplay.textContent = hours.toString().padStart(2, '0');
+//   minutesDisplay.textContent = minutes.toString().padStart(2, '0');
+//   secondsDisplay.textContent = seconds.toString().padStart(2, '0');
+// }
+function updateDisp({ days, hours, minutes, seconds }) {
+  daysDisplay.textContent = addLeadingZero(days.toString());
+  hoursDisplay.textContent = addLeadingZero(hours.toString());
+  minutesDisplay.textContent = addLeadingZero(minutes.toString());
+  secondsDisplay.textContent = addLeadingZero(seconds.toString());
 }
-
+function addLeadingZero(value) {
+  return value.padStart(2, '0');
+}
 // timer styles
 timer.style.display = 'flex';
 timer.style.gap = '10px';
