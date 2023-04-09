@@ -24,6 +24,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
+    let timeLeft = null;
     const date = new Date();
     if (date.getTime() > selectedDates[0].getTime()) {
       Notify.failure('Please choose a date in the future!');
@@ -38,7 +39,7 @@ const options = {
           timeLeft = 0;
           clearInterval(timerID);
         }
-        updateTimer(convertMs(timeLeft));
+        updateDisp(convertMs(timeLeft));
       }, 1000);
     }
   },
